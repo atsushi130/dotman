@@ -25,6 +25,31 @@
       "name": "gitignore",
       "input": "/gitignore/.gitignore",
       "output": "~/.gitignore"
+    },
+    {
+      "name": "sshrc",
+      "input": "/.sshrc",
+      "output": "~/.sshrc"
+    },
+    {
+      "name": "ideavimrc",
+      "input": "/vim/.ideavimrc",
+      "output": "~/.ideavimrc"
+    },
+    {
+      "name": "vimniumrc",
+      "input": "/vim/.vimniumrc",
+      "output": "~/.vimniumrc"
+    },
+    {
+      "name": "xvimrc",
+      "input": "/vim/.xvimrc",
+      "output": "~/.xvimrc"
+    },
+    {
+      "name": "tmux.conf",
+      "input": "/tmux/.tmux.conf",
+      "output": "~/.tmux.conf"
     }
   ]
 }
