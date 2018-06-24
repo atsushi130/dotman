@@ -1,0 +1,30 @@
+{
+  "repository": "https://github.com/atsushi130/dotman",
+  "dotfiles": [
+    {
+      "name": "vimrc",
+      "input": "/vim/.vimrc",
+      "output": "~/.vimrc"
+    },
+    {
+      "name": "zshrc",
+      "input": "/zsh/.zshrc",
+      "output": "~/.zshrc"
+    },
+    {
+      "name": "aliasrc",
+      "input": "/alias/.aliasrc",
+      "output": "~/.aliasrc"
+    },
+    {
+      "name": "gitconfig",
+      "input": "/.gitconfig",
+      "output": "~/.gitconfig"
+    },
+    {
+      "name": "gitignore",
+      "input": "/gitignore/.gitignore",
+      "output": "~/.gitignore"
+    }
+  ]
+}
