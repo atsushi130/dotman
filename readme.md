@@ -14,10 +14,10 @@
 ❯ cargo install
 ```
 
-## ohter installation
+## Installation via other
 ```
 ❯ git clone https://github.com/atsushi130/dotman
-❯ 
+❯ cp ./dotman/bin/dotman [any directory]
 ```
 
 ## Usage
