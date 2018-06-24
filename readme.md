@@ -41,7 +41,7 @@
   "dotfiles": [
     {
       "name": "vimrc", // <- install argument name
-      "input": "/vim/.vimrc", // <- ex: https://github.com/account/dotfiles/blob/master/vim/.vimrc
+      "input": "/vim/.vimrc", // <- ex: https://github.com/account/repository/blob/master/vim/.vimrc
       "output": "~/.vimrc" // <- install path
     }
   ]
