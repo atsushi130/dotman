@@ -21,6 +21,12 @@ fn main() {
             if let Some(rcs) = install_matches.values_of("rc") {
                 rcs.into_iter().for_each(|rc| {
                     print!("{}", rc.to_string());
+                    let a = Command::new("bash")
+                        .arg("-c")
+                        .arg(format!("echo aaa{}", rc.to_string()))
+                        .output()
+                        .expect("aaaa").stdout;
+                    print!("{}", std::str::from_utf8(&a).unwrap());
                 })
             } else {
                 println!("install command required arguments.");
