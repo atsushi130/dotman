@@ -23,11 +23,11 @@
 ## Usage
 #### Commands
 - install
-  + aliasrc
   + vimrc
   + zshrc
   + gitconfig
   + gitignore
+  + ... 
 
 ```
 ❯ dotman install vimrc
