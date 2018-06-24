@@ -4,3 +4,4 @@ version = "0.1.0"
 authors = ["atsushi130 <atsushi_main@outlook.jp>"]
 
 [dependencies]
+clap = "2.26.0"
