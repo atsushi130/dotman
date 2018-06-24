@@ -8,14 +8,24 @@ impl DotfilesRepository {
     pub fn fetch(&self, url: &str) -> Option<String> {
 
         let command = format!("curl {}", url);
-        let data = Command::new("bash")
-            .arg("-c")
-            .arg(command)
-            .output()
-            .expect("fetch failed").stdout;
+        let data = self.execute_command(&command, "fetch failed.");
 
         from_utf8(&data)
             .ok()
             .map(|content| format!("{}", content.to_string()))
+    }
+
+    pub fn backup(&self, path: &str) {
+        let command = format!("cp -f {} {}.backup", path, path);
+        self.execute_command(&command, "backup failed.");
+    }
+
+    pub fn execute_command(&self, command: &str, error_message: &str) -> Vec<u8> {
+        Command::new("bash")
+            .arg("-c")
+            .arg(command)
+            .output()
+            .expect(error_message)
+            .stdout
     }
 }
