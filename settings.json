@@ -1,5 +1,5 @@
 {
-  "repository": "https://github.com/atsushi130/dotman",
+  "repository": "https://raw.githubusercontent.com/atsushi130/dotfiles",
   "dotfiles": [
     {
       "name": "vimrc",
@@ -13,7 +13,7 @@
     },
     {
       "name": "aliasrc",
-      "input": "/alias/.aliasrc",
+      "input": "/.aliasrc",
       "output": "~/.aliasrc"
     },
     {
