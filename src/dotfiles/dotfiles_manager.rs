@@ -16,7 +16,7 @@ impl<'a> DotfilesManager<'a> {
         let settings = SettingsRepository.load();
         DotfilesManager {
             phantom: PhantomData,
-            repository: settings.repository
+            repository: format!("https://raw.githubusercontent.com/{}", settings.repository)
         }
     }
 
