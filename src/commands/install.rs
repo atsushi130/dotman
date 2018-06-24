@@ -1,7 +1,7 @@
 
 
 use super::super::clap::{ App, Arg, SubCommand, ArgMatches };
-use super::super::DotfilesRepository;
+use super::super::DotfilesManager;
 use std::marker::PhantomData;
 
 pub struct Install<'a> {
@@ -29,11 +29,7 @@ impl<'a> Install<'a> {
     pub fn execute(&self, matches: &ArgMatches) {
         if let Some(rcs) = matches.values_of("rc") {
             rcs.into_iter().for_each(|rc| {
-                DotfilesRepository.fetch(rc)
-                    .into_iter()
-                    .for_each(|content| {
-                        println!("{}", content);
-                    })
+                DotfilesManager::new().sync(rc);
             })
         } else {
             println!("install command required arguments.");

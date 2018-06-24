@@ -1,4 +1,5 @@
 
+use super::DotfilesRepository;
 use std::marker::PhantomData;
 
 pub struct DotfilesManager<'a> {
@@ -20,5 +21,14 @@ impl<'a> DotfilesManager<'a> {
             "aliasrc" => format!("{}/.aliasrc", DotfilesManager::BASE_URL),
             _ => "".to_string()
         }
+    }
+
+    pub fn sync(&self, file: &str) {
+        let url = self.create_url(file);
+        DotfilesRepository.fetch(&url)
+            .into_iter()
+            .for_each(|content| {
+                println!("{}", content);
+            })
     }
 }

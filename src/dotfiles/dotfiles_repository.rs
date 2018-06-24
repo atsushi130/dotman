@@ -1,15 +1,12 @@
 
-use super::DotfilesManager;
 use std::process::Command;
 use std::str::from_utf8;
 
 pub struct DotfilesRepository;
 impl DotfilesRepository {
 
-    pub fn fetch(&self, file: &str) -> Option<String> {
+    pub fn fetch(&self, url: &str) -> Option<String> {
 
-        let dotfiles_manager = DotfilesManager::new();
-        let url = dotfiles_manager.create_url(file);
         let command = format!("curl {}", url);
         let data = Command::new("bash")
             .arg("-c")

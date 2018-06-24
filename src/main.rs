@@ -6,7 +6,7 @@ mod commands;
 use commands::Install;
 
 mod dotfiles;
-use dotfiles::DotfilesRepository;
+use dotfiles::DotfilesManager;
 
 fn main() {
 
