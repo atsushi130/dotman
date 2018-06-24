@@ -16,14 +16,14 @@ impl<'a> DotfilesManager<'a> {
         }
     }
 
-    pub fn create_url(&self, file: &str) -> String {
+    fn create_url(&self, file: &str) -> String {
         match file {
             "aliasrc" => format!("{}/.aliasrc", DotfilesManager::BASE_URL),
             _ => "".to_string()
         }
     }
 
-    pub fn create_local_path(&self, file: &str) -> String {
+    fn create_local_path(&self, file: &str) -> String {
         match file {
             "aliasrc" => format!("~/.aliasrc"),
             _ => "".to_string()
@@ -32,14 +32,16 @@ impl<'a> DotfilesManager<'a> {
 
     pub fn sync(&self, file: &str) {
         let url = self.create_url(file);
-        DotfilesRepository.fetch(&url)
-            .into_iter()
-            .for_each(|content| {
-                println!("{}", content);
-            })
+        self.backup(file);
+        self.create_file(file);
     }
 
-    pub fn backup(&self, file: &str) {
+    fn create_file(&self, file: &str) {
+        let path = self.create_local_path(file);
+        DotfilesRepository.create(&url, &path);
+    }
+
+    fn backup(&self, file: &str) {
         let path = self.create_local_path(file);
         DotfilesRepository.backup(&path);
     }
