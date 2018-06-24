@@ -7,6 +7,9 @@ use std::process::{ Command, Stdio };
 mod commands;
 use commands::Install;
 
+mod repository;
+use repository::DotfilesRepository;
+
 fn main() {
 
     let dotman = App::new("dotman");
