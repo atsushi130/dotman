@@ -20,7 +20,7 @@ impl<'a> Install<'a> {
     }
 
     pub fn command(&self) -> App {
-        SubCommand::with_name("install")
+        SubCommand::with_name(Install::NAME)
             .about("Install specified dotfiles from your repository.")
             .arg(
                 Arg::with_name("rc").multiple(true)
