@@ -1,6 +1,7 @@
 
 
 use super::super::clap::{ App, Arg, SubCommand, ArgMatches };
+use super::super::DotfilesRepository;
 use std::process::{ Command, Stdio };
 use std::marker::PhantomData;
 use std::str::from_utf8;
@@ -30,12 +31,11 @@ impl<'a> Install<'a> {
     pub fn execute(&self, matches: &ArgMatches) {
         if let Some(rcs) = matches.values_of("rc") {
             rcs.into_iter().for_each(|rc| {
-                let a = Command::new("bash")
-                    .arg("-c")
-                    .arg(format!("echo {}", rc.to_string()))
-                    .output()
-                    .expect("install failed").stdout;
-                print!("{}", from_utf8(&a).unwrap());
+                DotfilesRepository.fetch(rc)
+                    .into_iter()
+                    .for_each(|content| {
+                        println!("{}", content);
+                    })
             })
         } else {
             println!("install command required arguments.");
