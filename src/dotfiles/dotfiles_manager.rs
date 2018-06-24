@@ -21,6 +21,8 @@ impl<'a> DotfilesManager<'a> {
             "aliasrc" => format!("{}/.aliasrc", DotfilesManager::BASE_URL),
             "vimrc" => format!("{}/vim/.vimrc", DotfilesManager::BASE_URL),
             "zshrc" => format!("{}/zsh/.zshrc", DotfilesManager::BASE_URL),
+            "gitconfig" => format!("{}/.gitconfig", DotfilesManager::BASE_URL),
+            "gitignore" => format!("{}/.gitignore", DotfilesManager::BASE_URL),
             _ => "".to_string()
         }
     }
@@ -30,6 +32,8 @@ impl<'a> DotfilesManager<'a> {
             "aliasrc" => format!("~/.aliasrc"),
             "vimrc" => format!("~/.vimrc"),
             "zshrc" => format!("~/.zshrc"),
+            "gitconfig" => format!("~/.gitconfig"),
+            "gitignore" => format!("~/.gitignore"),
             _ => "".to_string()
         }
     }
