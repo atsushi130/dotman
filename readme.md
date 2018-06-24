@@ -33,5 +33,20 @@
 ❯ dotman install vimrc
 ```
 
+## Settings
+`settings.json`
+```
+{
+  "repository": "account/repository",
+  "dotfiles": [
+    {
+      "name": "vimrc",
+      "input": "/vim/.vimrc",
+      "output": "~/.vimrc"
+    }
+  ]
+}
+```
+
 ## License
 dotman is available under the MIT license. See the [LICENSE file](https://github.com/atsushi130/dotman/blob/master/license-mit).
