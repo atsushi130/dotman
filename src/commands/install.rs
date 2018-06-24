@@ -13,7 +13,7 @@ impl<'a> Install<'a> {
 
     pub const NAME: &'a str = "install";
 
-    pub fn from<'b>() -> Install<'b> {
+    pub fn new<'b>() -> Install<'b> {
         Install {
             phantom: PhantomData
         }

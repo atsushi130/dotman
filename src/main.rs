@@ -14,7 +14,7 @@ fn main() {
 
     let dotman = App::new("dotman");
 
-    let install = Install::from();
+    let install = Install::new();
     let install_command = install.command();
     let matches = dotman.subcommand(install_command).get_matches();
     match matches.subcommand() {
