@@ -1,4 +1,6 @@
 
+// Copyright (c) 2018 Atsushi Miyake. All rights reserved.
+
 use super::DotfilesRepository;
 use std::marker::PhantomData;
 
