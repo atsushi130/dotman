@@ -5,8 +5,8 @@ use clap::App;
 mod commands;
 use commands::Install;
 
-mod repository;
-use repository::DotfilesRepository;
+mod dotfiles;
+use dotfiles::DotfilesRepository;
 
 fn main() {
 
