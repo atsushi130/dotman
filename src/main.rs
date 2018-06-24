@@ -23,9 +23,9 @@ fn main() {
                     print!("{}", rc.to_string());
                     let a = Command::new("bash")
                         .arg("-c")
-                        .arg(format!("echo aaa{}", rc.to_string()))
+                        .arg(format!("echo {}", rc.to_string()))
                         .output()
-                        .expect("aaaa").stdout;
+                        .expect("install failed").stdout;
                     print!("{}", std::str::from_utf8(&a).unwrap());
                 })
             } else {
