@@ -2,6 +2,8 @@
 // Copyright (c) 2018 Atsushi Miyake. All rights reserved.
 
 extern crate clap;
+extern crate rustc_serialize;
+
 use clap::App;
 
 mod commands;
