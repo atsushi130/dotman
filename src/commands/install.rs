@@ -2,11 +2,22 @@
 
 use super::super::clap::{ App, Arg, SubCommand, ArgMatches };
 use std::process::{ Command, Stdio };
+use std::marker::PhantomData;
 use std::str::from_utf8;
 
-pub struct Install;
+pub struct Install<'a> {
+    phantom: PhantomData<&'a str>
+}
 
-impl Install {
+impl<'a> Install<'a> {
+
+    pub const NAME: &'a str = "install";
+
+    pub fn from<'b>() -> Install<'b> {
+        Install {
+            phantom: PhantomData
+        }
+    }
 
     pub fn command(&self) -> App {
         SubCommand::with_name("install")
