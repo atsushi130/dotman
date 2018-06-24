@@ -1,5 +1,5 @@
 {
-  "repository": "https://raw.githubusercontent.com/atsushi130/dotfiles",
+  "repository": "atsushi130/dotfiles",
   "dotfiles": [
     {
       "name": "vimrc",
