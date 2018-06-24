@@ -31,12 +31,12 @@ impl<'a> DotfilesManager<'a> {
     }
 
     pub fn sync(&self, file: &str) {
-        let url = self.create_url(file);
         self.backup(file);
         self.create_file(file);
     }
 
     fn create_file(&self, file: &str) {
+        let url = self.create_url(file);
         let path = self.create_local_path(file);
         DotfilesRepository.create(&url, &path);
     }
