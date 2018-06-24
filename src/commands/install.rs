@@ -2,9 +2,7 @@
 
 use super::super::clap::{ App, Arg, SubCommand, ArgMatches };
 use super::super::DotfilesRepository;
-use std::process::{ Command, Stdio };
 use std::marker::PhantomData;
-use std::str::from_utf8;
 
 pub struct Install<'a> {
     phantom: PhantomData<&'a str>

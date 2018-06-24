@@ -2,8 +2,6 @@
 extern crate clap;
 use clap::App;
 
-use std::process::{ Command, Stdio };
-
 mod commands;
 use commands::Install;
 

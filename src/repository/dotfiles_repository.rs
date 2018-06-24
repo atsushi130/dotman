@@ -1,5 +1,5 @@
 
-use std::process::{ Command, Stdio };
+use std::process::Command;
 use std::str::from_utf8;
 
 pub struct DotfilesRepository;
