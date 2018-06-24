@@ -2,42 +2,40 @@
 // Copyright (c) 2018 Atsushi Miyake. All rights reserved.
 
 use super::DotfilesRepository;
+use super::super::{ SettingsRepository, Dotfile };
 use std::marker::PhantomData;
 
 pub struct DotfilesManager<'a> {
-    phantom: PhantomData<&'a str>
+    phantom: PhantomData<&'a str>,
+    repository: String
 }
 
 impl<'a> DotfilesManager<'a> {
 
-    const BASE_URL: &'a str = "https://raw.githubusercontent.com/atsushi130/dotfiles/master";
-
     pub fn new<'b>() -> DotfilesManager<'b> {
+        let settings = SettingsRepository.load();
         DotfilesManager {
-            phantom: PhantomData
+            phantom: PhantomData,
+            repository: settings.repository
         }
     }
 
     fn create_url(&self, file: &str) -> String {
-        match file {
-            "aliasrc" => format!("{}/.aliasrc", DotfilesManager::BASE_URL),
-            "vimrc" => format!("{}/vim/.vimrc", DotfilesManager::BASE_URL),
-            "zshrc" => format!("{}/zsh/.zshrc", DotfilesManager::BASE_URL),
-            "gitconfig" => format!("{}/.gitconfig", DotfilesManager::BASE_URL),
-            "gitignore" => format!("{}/.gitignore", DotfilesManager::BASE_URL),
-            _ => "".to_string()
-        }
+        let base_url = format!("{}/master", self.repository);
+        self.find_dotfile(file)
+            .map_or("".to_string(), |dotfile| format!("{}{}", base_url, dotfile.input))
     }
 
     fn create_local_path(&self, file: &str) -> String {
-        match file {
-            "aliasrc" => format!("~/.aliasrc"),
-            "vimrc" => format!("~/.vimrc"),
-            "zshrc" => format!("~/.zshrc"),
-            "gitconfig" => format!("~/.gitconfig"),
-            "gitignore" => format!("~/.gitignore"),
-            _ => "".to_string()
-        }
+        self.find_dotfile(file)
+            .map_or("".to_string(), |dotfile| dotfile.output)
+    }
+
+    fn find_dotfile(&self, file: &str) -> Option<Dotfile> {
+        SettingsRepository.load().dotfiles
+            .into_iter()
+            .filter(|dotfile| dotfile.name == file.to_string())
+            .next()
     }
 
     pub fn sync(&self, file: &str) {
