@@ -20,6 +20,7 @@ impl<'a> DotfilesManager<'a> {
         match file {
             "aliasrc" => format!("{}/.aliasrc", DotfilesManager::BASE_URL),
             "vimrc" => format!("{}/vim/.vimrc", DotfilesManager::BASE_URL),
+            "zshrc" => format!("{}/zsh/.zshrc", DotfilesManager::BASE_URL),
             _ => "".to_string()
         }
     }
@@ -28,6 +29,7 @@ impl<'a> DotfilesManager<'a> {
         match file {
             "aliasrc" => format!("~/.aliasrc"),
             "vimrc" => format!("~/.vimrc"),
+            "zshrc" => format!("~/.zshrc"),
             _ => "".to_string()
         }
     }
