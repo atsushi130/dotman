@@ -12,6 +12,9 @@ use commands::Install;
 mod dotfiles;
 use dotfiles::DotfilesManager;
 
+mod settings;
+use settings::{ SettingsRepository, Dotfile };
+
 fn main() {
 
     let dotman = App::new("dotman");
