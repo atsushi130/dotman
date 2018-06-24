@@ -5,6 +5,7 @@ use std::str::from_utf8;
 pub struct DotfilesRepository;
 impl DotfilesRepository {
 
+    #[allow(unused)]
     pub fn fetch(&self, url: &str) -> Option<String> {
 
         let command = format!("curl {}", url);
@@ -17,7 +18,7 @@ impl DotfilesRepository {
 
     pub fn create(&self, url: &str, path: &str) {
         let command = format!("curl {} >| {}", url, path);
-        let data = self.execute_command(&command, "create failed.");
+        self.execute_command(&command, "create failed.");
     }
 
     pub fn backup(&self, path: &str) {
