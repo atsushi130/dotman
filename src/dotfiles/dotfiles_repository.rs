@@ -15,6 +15,11 @@ impl DotfilesRepository {
             .map(|content| format!("{}", content.to_string()))
     }
 
+    pub fn create(&self, url: &str, path: &str) {
+        let command = format!("curl {} >| {}", url, path);
+        let data = self.execute_command(&command, "create failed.");
+    }
+
     pub fn backup(&self, path: &str) {
         let command = format!("cp -f {} {}.backup", path, path);
         self.execute_command(&command, "backup failed.");
