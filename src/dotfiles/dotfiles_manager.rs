@@ -19,6 +19,7 @@ impl<'a> DotfilesManager<'a> {
     fn create_url(&self, file: &str) -> String {
         match file {
             "aliasrc" => format!("{}/.aliasrc", DotfilesManager::BASE_URL),
+            "vimrc" => format!("{}/vim/.vimrc", DotfilesManager::BASE_URL),
             _ => "".to_string()
         }
     }
@@ -26,6 +27,7 @@ impl<'a> DotfilesManager<'a> {
     fn create_local_path(&self, file: &str) -> String {
         match file {
             "aliasrc" => format!("~/.aliasrc"),
+            "vimrc" => format!("~/.vimrc"),
             _ => "".to_string()
         }
     }
