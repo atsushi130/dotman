@@ -1,3 +1,3 @@
 
 mod settings;
-pub use self::settings::Settings;
+pub use self::settings::{ Settings, Dotfile };
