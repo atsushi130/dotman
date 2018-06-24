@@ -40,9 +40,9 @@
   "repository": "account/repository",
   "dotfiles": [
     {
-      "name": "vimrc",
-      "input": "/vim/.vimrc",
-      "output": "~/.vimrc"
+      "name": "vimrc", // <- install argument name
+      "input": "/vim/.vimrc", // <- ex: https://github.com/account/dotfiles/blob/master/vim/.vimrc
+      "output": "~/.vimrc" // <- install path
     }
   ]
 }
