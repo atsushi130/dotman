@@ -9,7 +9,7 @@ impl DotfilesRepository {
     pub fn fetch(&self, file: &str) -> Option<String> {
 
         let dotfiles_manager = DotfilesManager::new();
-        let url = dotfiles_manager.create(file);
+        let url = dotfiles_manager.create_url(file);
         let command = format!("curl {}", url);
         let data = Command::new("bash")
             .arg("-c")

@@ -15,7 +15,7 @@ impl<'a> DotfilesManager<'a> {
         }
     }
 
-    pub fn create(&self, file: &str) -> String {
+    pub fn create_url(&self, file: &str) -> String {
         match file {
             "aliasrc" => format!("{}/.aliasrc", DotfilesManager::BASE_URL),
             _ => "".to_string()
