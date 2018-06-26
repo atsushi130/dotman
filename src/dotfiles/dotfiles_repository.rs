@@ -28,7 +28,12 @@ impl DotfilesRepository {
         self.execute_command(&command, "backup failed.");
     }
 
-    pub fn execute_command(&self, command: &str, error_message: &str) -> Vec<u8> {
+    pub fn execute_script(&self, url: &str) {
+        let command = format!("curl {} | sh", url);
+        self.execute_command(&command, "execute script failed.");
+    }
+
+    fn execute_command(&self, command: &str, error_message: &str) -> Vec<u8> {
         Command::new("bash")
             .arg("-c")
             .arg(command)
