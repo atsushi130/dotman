@@ -1,5 +1,6 @@
 {
   "repository": "atsushi130/dotfiles",
+  "init": "/sync.sh",
   "dotfiles": [
     {
       "name": "vimrc",

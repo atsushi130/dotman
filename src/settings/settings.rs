@@ -3,6 +3,7 @@
 #[derive(Debug)]
 pub struct Settings {
     pub repository: String,
+    pub init: String,
     pub dotfiles: Vec<Dotfile>
 }
 
