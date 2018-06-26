@@ -7,7 +7,7 @@ extern crate rustc_serialize;
 use clap::App;
 
 mod commands;
-use commands::Install;
+use commands::{ Install, List };
 
 mod dotfiles;
 use dotfiles::DotfilesManager;
@@ -21,11 +21,22 @@ fn main() {
 
     let install = Install::new();
     let install_command = install.command();
-    let matches = dotman.subcommand(install_command).get_matches();
+
+    let list = List::new();
+    let list_command = list.command();
+
+    let matches = dotman
+        .subcommand(install_command)
+        .subcommand(list_command)
+        .get_matches();
+
     match matches.subcommand() {
         (Install::NAME, Some(install_matches)) => {
             install.execute(install_matches);
         },
+        (List::NAME, Some(list_matches)) => {
+            list.execute(list_matches)
+        }
         _  => {}
     }
 }
