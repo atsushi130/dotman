@@ -25,18 +25,28 @@ impl<'a> Install<'a> {
             .arg(
                 Arg::with_name("rc").multiple(true)
             )
+            .arg(
+                Arg::with_name("chain")
+                    .help("chain install")
+                    .short("c")
+                    .long("chain")
+            )
     }
 
     pub fn execute(&self, matches: &ArgMatches) {
-        if let Some(dotfile) = matches.values_of("rc") {
-            dotfile
-                .into_iter()
-                .for_each(|dotfile| {
-                    DotfilesManager::new().sync(dotfile);
-                    self.chain(dotfile);
-                })
+        if let Some(mut values) = matches.values_of("rc") {
+            if let Some(dotfile) = values.next() {
+                self.install(dotfile, matches.is_present("chain"));
+            }
         } else {
             println!("install command required arguments.");
+        }
+    }
+
+    fn install(&self, dotfile: &str, is_chain: bool) {
+        DotfilesManager::new().sync(dotfile);
+        if is_chain {
+            self.chain(dotfile);
         }
     }
 
