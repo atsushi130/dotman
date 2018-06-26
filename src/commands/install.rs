@@ -28,12 +28,26 @@ impl<'a> Install<'a> {
     }
 
     pub fn execute(&self, matches: &ArgMatches) {
-        if let Some(rcs) = matches.values_of("rc") {
-            rcs.into_iter().for_each(|rc| {
-                DotfilesManager::new().sync(rc);
-            })
+        if let Some(dotfile) = matches.values_of("rc") {
+            dotfile
+                .into_iter()
+                .for_each(|dotfile| {
+                    DotfilesManager::new().sync(dotfile);
+                    self.chain(dotfile);
+                })
         } else {
             println!("install command required arguments.");
         }
+    }
+
+    fn chain(&self, dotfile: &str) {
+        let manager = DotfilesManager::new();
+        manager.find_dotfile(dotfile)
+            .into_iter()
+            .flat_map(|dotfile| dotfile.chain)
+            .next()
+            .into_iter()
+            .flat_map(|chain| chain)
+            .for_each(|dotfile| manager.sync(&dotfile))
     }
 }
