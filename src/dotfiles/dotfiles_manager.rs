@@ -31,7 +31,7 @@ impl<'a> DotfilesManager<'a> {
             .map_or("".to_string(), |dotfile| dotfile.output)
     }
 
-    fn find_dotfile(&self, file: &str) -> Option<Dotfile> {
+    pub fn find_dotfile(&self, file: &str) -> Option<Dotfile> {
         SettingsRepository.load().dotfiles
             .into_iter()
             .filter(|dotfile| dotfile.name == file.to_string())
