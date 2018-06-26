@@ -16,7 +16,7 @@
 
 ## Usage
 #### Commands
-- install
+- install [-chain|-c]
   + vimrc
   + zshrc
   + gitconfig
@@ -37,6 +37,7 @@
       "name": "vimrc", // <- install argument name
       "input": "/vim/.vimrc", // <- ex: https://github.com/account/repository/blob/master/vim/.vimrc
       "output": "~/.vimrc" // <- install path
+      "chain": ["ideavimrc", "xvimrc"]
     }
   ]
 }
