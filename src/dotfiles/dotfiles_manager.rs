@@ -31,6 +31,13 @@ impl<'a> DotfilesManager<'a> {
             .map_or("".to_string(), |dotfile| dotfile.output)
     }
 
+    pub fn execute_init(&self) {
+        let base_url = format!("{}/master", self.repository);
+        let init = SettingsRepository.load().init;
+        let init_url = format!("{}{}", base_url, init);
+        DotfilesRepository.execute_script(&init_url);
+    }
+
     pub fn find_dotfile(&self, file: &str) -> Option<Dotfile> {
         SettingsRepository.load().dotfiles
             .into_iter()
