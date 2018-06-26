@@ -4,7 +4,10 @@
     {
       "name": "vimrc",
       "input": "/vim/.vimrc",
-      "output": "~/.vimrc"
+      "output": "~/.vimrc",
+      "chain": [
+        "ideavimrc", "xvimrc"
+      ]
     },
     {
       "name": "zshrc",

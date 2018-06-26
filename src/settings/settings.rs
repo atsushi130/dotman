@@ -12,5 +12,6 @@ pub struct Settings {
 pub struct Dotfile {
     pub name: String,
     pub input: String,
-    pub output: String
+    pub output: String,
+    pub chain: Option<Vec<String>>
 }
