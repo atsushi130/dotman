@@ -16,15 +16,16 @@
 
 ## Usage
 #### Commands
-- install [-chain|-c]
-  + vimrc
-  + zshrc
-  + gitconfig
-  + gitignore
-  + ... 
-
+- install [--chain|-c]
 ```
 ❯ dotman install vimrc
+❯ dotman install --chain vimrc
+```
+
+- list
+
+```
+❯ dotman list
 ```
 
 ## Settings
