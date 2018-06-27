@@ -1,4 +1,6 @@
 
+// Copyright (c) 2018 Atsushi Miyake. All rights reserved.
+
 #[derive(RustcDecodable)]
 #[derive(Debug)]
 pub struct Settings {

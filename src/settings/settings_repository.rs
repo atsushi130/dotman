@@ -1,4 +1,6 @@
 
+// Copyright (c) 2018 Atsushi Miyake. All rights reserved.
+
 use super::Settings;
 use rustc_serialize::json;
 use std::fs::File;

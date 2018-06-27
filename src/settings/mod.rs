@@ -1,4 +1,6 @@
 
+// Copyright (c) 2018 Atsushi Miyake. All rights reserved.
+
 mod settings;
 pub use self::settings::{ Settings, Dotfile };
 
