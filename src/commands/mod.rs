@@ -7,5 +7,5 @@ pub use self::install::Install;
 mod list;
 pub use self::list::List;
 
-mod init;
-pub use self::init::Init;
+mod setup;
+pub use self::setup::Setup;
