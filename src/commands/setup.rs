@@ -5,23 +5,23 @@ use super::super::clap::{ App, SubCommand, ArgMatches };
 use super::super::DotfilesManager;
 use std::marker::PhantomData;
 
-pub struct Init<'a> {
+pub struct Setup<'a> {
     phantom: PhantomData<&'a str>
 }
 
-impl<'a> Init<'a> {
+impl<'a> Setup<'a> {
 
     pub const NAME: &'a str = "init";
 
-    pub fn new<'b>() -> Init<'b> {
-        Init {
+    pub fn new<'b>() -> Setup<'b> {
+        Setup {
             phantom: PhantomData
         }
     }
 
     pub fn command(&self) -> App {
-        SubCommand::with_name(Init::NAME)
-            .about("initialize dotfiles.")
+        SubCommand::with_name(Setup::NAME)
+            .about("setup dotfiles.")
     }
 
     pub fn execute(&self, _matches: &ArgMatches) {
