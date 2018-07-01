@@ -13,7 +13,7 @@ impl SettingsRepository {
     pub fn load(&self) -> Settings {
 
         let dir = env!("CARGO_MANIFEST_DIR");
-        let path = format!("{}/settings.json", dir);
+        let path = format!("{}/dotman.json", dir);
         let mut file = File::open(path).unwrap();
         let mut data = String::new();
         file.read_to_string(&mut data).unwrap();
