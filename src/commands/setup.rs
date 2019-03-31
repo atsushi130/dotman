@@ -2,7 +2,7 @@
 // Copyright (c) 2018 Atsushi Miyake. All rights reserved.
 
 use super::super::clap::{ App, SubCommand, ArgMatches };
-use super::super::DotfilesManager;
+use super::super::DotfilesService;
 use std::marker::PhantomData;
 
 pub struct Setup<'a> {
@@ -25,6 +25,6 @@ impl<'a> Setup<'a> {
     }
 
     pub fn execute(&self, _matches: &ArgMatches) {
-        DotfilesManager::new().execute_init();
+        DotfilesService::new().execute_init();
     }
 }
