@@ -10,7 +10,7 @@ mod commands;
 use commands::{ Install, List, Setup };
 
 mod dotfiles;
-use dotfiles::DotfilesManager;
+use dotfiles::DotfilesService;
 
 mod settings;
 use settings::{ SettingsRepository, Dotfile };

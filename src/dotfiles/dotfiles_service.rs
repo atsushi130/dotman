@@ -5,16 +5,16 @@ use super::DotfilesRepository;
 use super::super::{ SettingsRepository, Dotfile };
 use std::marker::PhantomData;
 
-pub struct DotfilesManager<'a> {
+pub struct DotfilesService<'a> {
     phantom: PhantomData<&'a str>,
     repository: String
 }
 
-impl<'a> DotfilesManager<'a> {
+impl<'a> DotfilesService<'a> {
 
-    pub fn new<'b>() -> DotfilesManager<'b> {
+    pub fn new<'b>() -> DotfilesService<'b> {
         let settings = SettingsRepository.load();
-        DotfilesManager {
+        DotfilesService {
             phantom: PhantomData,
             repository: format!("https://raw.githubusercontent.com/{}", settings.repository)
         }
